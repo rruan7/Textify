@@ -1,0 +1,18 @@
+{% extends "base.html" %} {% load static %} {% block page_content %}
+
+<div class="main">
+  <!-- Create a Form -->
+  <form method="POST">
+    <!-- Security token by Django -->
+    {% csrf_token %}
+
+    <h1 class="my-5">Enter URL of Image to Textify</h1>
+    <div class="my-5">
+      <!-- form as paragraph -->
+      {{ form.as_p }}
+    </div>
+
+    <input type="submit" value="Update" />
+  </form>
+</div>
+{% endblock %}

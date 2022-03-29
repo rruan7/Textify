@@ -1,0 +1,30 @@
+{% extends "base.html" %} {% load static %} {% block page_content %}
+
+{% for textify in textifys %}
+
+</br>
+<div class="row">
+  <div class="col-md-11">
+    <h1>Textify An Image!</h1>
+  </div>
+  <div class="col-md-1">
+    <!-- Render Refresh Button -->
+    <a href="{% url 'update_textify' textify.pk %}" class="btn btn-primary">
+        Textify Again
+    </a>
+  </div>
+</div>
+</br>
+
+<div class="row">
+    <div class="col-md-7 my-4">
+        <h4>Detected Text</h4>
+        <div>{{ textify.text|linebreaks }}</div>
+    </div>
+    <div class="col-md-5 my-5">
+        <img src="{{ textify.image }}" width="100%"></img>
+    </div>
+ </div>   
+
+{% endfor %}
+{% endblock %}
